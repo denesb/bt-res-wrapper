@@ -60,11 +60,10 @@ for line_raw in process.stderr:
     match = re.match(address_re, line)
     if match:
         addr = match.group(1)
+        addresses.append(int(addr, 16) - base_addr)
     else:
         backtrace_mode = False
         print("Backtrace:")
         print(resolve_addresses(executable, addresses))
-
-    addresses.append(int(addr, 16) - base_addr)
 
 process.wait()
