@@ -41,7 +41,7 @@ with open("/proc/{}/maps".format(process.pid), "r") as map_f:
 
 print("Process base address is 0x{0:x}".format(base_addr))
 
-address_re = re.compile('\W+(0x[0-9abcdef]+)')
+address_re = re.compile('\W*(0x[0-9abcdef]+)')
 backtrace_mode = False
 addresses = []
 
